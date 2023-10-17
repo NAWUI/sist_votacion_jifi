@@ -1,0 +1,415 @@
+/********** Template CSS **********/
+:root {
+  --primary: #1692eb;
+  --secondary: #191C24;
+  --light: #6C7293;
+  --dark: #000000;
+}
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+.footer-wrapper {
+  position: relative;
+  clear: both;
+  width: 100%;
+  height: 100px; /* Ajusta esta altura según sea necesario */
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.rowMap{
+  height: 8%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+.headerA{
+  -webkit-box-shadow: 0px -28px 100px 9px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px -28px 100px 9px rgba(0,0,0,0.75);
+  box-shadow: 0px -28px 100px 9px rgba(0,0,0,0.75);
+  /* height: 7.5%; */
+}
+.button-28 {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #481620;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #481620;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-width: 0;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
+  }
+  
+  .button-28:disabled {
+    pointer-events: none;
+  }
+  
+  .button-28:hover {
+    color: #481620;
+    background-color: #a971cc;
+  }
+
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #333333;
+    overflow-x: hidden;
+    transition: 0.2s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+    color: #fff !important;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  .opacidad{
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2 !important;
+  }
+
+  .test{
+    display: block !important;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: all 0.5s;
+  }
+
+  .sideButtonsContainer{
+    background-color: #D7BCE8;
+    border-bottom: #481620 solid 2px;
+    border-top: #481620 solid 2px;
+  }
+    @media screen and (max-width: 750px) {
+      .sizeChangeMobile{
+      width: 65% !important; 
+      }
+    }
+    @media screen and (min-width: 751px) {
+      .sizeChange{
+        width: 20% !important; 
+      }
+    }
+
+    .sideButtons{
+      text-align: left;
+      color: #e9dee0 !important;
+      font-size: 110%;
+      transition: all 0.3s ease 0s;
+      height: 7vh;
+      padding: 7px 20px;
+      border-left: 3px solid var(--secondary);
+      border-radius: 0 30px 30px 0;
+      outline: none;
+  }
+  
+  .sideButtons:hover {
+      color: var(--primary);
+      background: #2980b9;
+      border-color: #fff;
+  }
+
+@media screen and (max-width: 750px) {
+    .sizeChangeMobile{
+    width: 65% !important; 
+    }
+  }
+  @media screen and (min-width: 751px) {
+    .sizeChange{
+      width: 20% !important; 
+    }
+  }
+
+  .opacidad{
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2 !important;
+  }
+
+  .sidenav-content {
+    text-align: center;
+}
+
+.sidenav-title {
+    color: #ffffff;
+    padding: 20px 0;
+    margin: 15px;
+}
+body {
+    background-color: #481620;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.custom-container {
+    background-color: #edebeb;
+    color: #000000;
+    padding: 20px;
+    margin: 100px auto;
+    max-width: 400px; /* Cambiado a máximo ancho */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 10px 19px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 19px -3px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 19px -3px rgba(0,0,0,0.75);
+}
+.custom-container-login {
+  background-color: #D7BCE8;
+  color: #481620;
+  padding: 20px;
+  margin: 200px auto;
+  max-width: 400px; /* Cambiado a máximo ancho */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 10px 19px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 19px -3px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 19px -3px rgba(0,0,0,0.75);
+}
+
+.custom-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.custom-form-group {
+    margin-bottom: 20px;
+}
+
+.custom-form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #481620;
+}
+
+.custom-form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1.5px solid #481620;
+    background-color: transparent; /* Cambiado a transparente */
+    color: #333;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: border 0.3s, background-color 0.3s; /* Agregada transición */
+}
+
+.custom-form-control:focus {
+    background-color: #c4add3; /* Cambiado al hacer foco */
+    outline: none;
+}
+
+.custom-btn-primary {
+    background-color: transparent;
+    border: 2px solid #481620;
+    padding: 10px 20px;
+    color: #481620;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Añadida transición de color y borde */
+    border-radius: 5px;
+}
+
+.custom-btn-primary:hover {
+    background-color: #a971cc;
+    color: #481620;
+}
+
+.custom-btn-container {
+    text-align: right; /* Coloca el botón a la derecha */
+    margin-top: 20px; /* Agregado espacio arriba del botón */
+}
+
+.bg-customBlue{
+    background-color: #333333;
+}
+.navbar-toggler.navbar-toggler.navbar-toggler{
+  border-color: rgba(0,0,0,0);
+}
+.text-light.text-light{
+  color: #fff !important;
+}
+.mapaLayout {
+  width: 100%;
+  height: 92.5%;
+
+  display: grid;
+  grid:
+    "Mapa Descripcion" auto
+    / 40% 60%;
+}
+@media screen and (max-width: 750px) {
+  .mapaLayout {
+    width: 100%;
+    height: 92.5%;
+  
+    display: grid;
+    grid:
+      "Mapa Descripcion" auto
+      / 100% 0%;
+  }
+  .Mapa { 
+    grid-area: Mapa; 
+    background-image: url("../img/FondoMapaTurismo3.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .Descripcion { display: none; }
+}
+.Mapa { 
+  grid-area: Mapa; 
+  background-image: url("../img/FondoMapaTurismo3.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.Descripcion { grid-area: Descripcion; }
+
+.mapContainer.mapContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mapConteinerConteiner.mapConteinerConteiner{
+  height: 85%;
+  width: 65%;
+}
+
+.fila {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.standVer {
+  width: 45%;
+  height: 100%;
+  background-color: #FAFBFD;
+  border-radius: 3px;
+}
+.standHor {
+  width: 80%;
+  height: 55%;
+  background-color: #FAFBFD;
+  border-radius: 3px;
+}
+.standVer:hover{
+  border: 2px solid #672d39;
+}
+.standHor:hover{
+  border: 2px solid #672d39;
+}
+.standVerINVISIBLE{
+  width: 60%;
+  height: 100%;
+}
+.standHorINVISIBLE{
+  width: 80%;
+  height: 55%;
+}
+.standAjusteV.standAjusteV{
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 0%;
+  padding-right: 0%;
+  display: flex; /* Establece el contenedor externo como un contenedor flexible */
+  justify-content: center; /* Centra horizontalmente el contenido */
+  align-items: center; /* Centra verticalmente el contenido */
+  height: 100%;
+  width: 100%;
+}
+.standAjusteH.standAjusteH{
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 0%;
+  padding-bottom: 0%;
+  display: flex; /* Establece el contenedor externo como un contenedor flexible */
+  justify-content: center; /* Centra horizontalmente el contenido */
+  align-items: center; /* Centra verticalmente el contenido */
+  height: 100%;
+  width: 100%;
+}
+
+.seleccionado{
+  background-color: #47db34;
+}
+
+.listaLayout {
+  width: 100%;
+  height: 100vh;
+
+  display: grid;
+  grid:
+    "Lista Descripcion" auto
+    / 30% 70%;
+  gap: 8px;
+}
+
+.Lista { grid-area: Lista; }
+.Descripcion { grid-area: Descripcion; }
+
+.loginLayout {
+  width: 100%;
+  height: 100vh;
+
+  display: grid;
+  grid:
+    "Imagen Login" auto
+    / 50% 50%;
+  gap: 8px;
+}
+
+.Imagen { grid-area: Imagen; }
+.Login { grid-area: Login; }
+
+.sidenav .sidenav-content a i {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--light);
+  border-radius: 40px;
+}
