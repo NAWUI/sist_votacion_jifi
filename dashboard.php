@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Jornadas Turísticas</title>
+    <title>Sistema de votacion</title>
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/style_login.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -42,17 +42,10 @@
               </div>
           </div>
               <div class="form-group">
-                  <label for="propuesta1">Propuesta 1</label>
-                  <textarea class="form-control" id="propuesta1" name="propuesta1"></textarea>
+                  <label for="propuesta">Propuesta</label>
+                  <textarea class="form-control" id="propuesta" name="propuesta"></textarea>
               </div>
-              <div class="form-group">
-                  <label for="propuesta2">Propuesta 2</label>
-                  <textarea class="form-control" id="propuesta2" name="propuesta2"></textarea>
-              </div>
-              <div class="form-group">
-                  <label for="propuesta3">Propuesta 3</label>
-                  <textarea class="form-control" id="propuesta3" name="propuesta3"></textarea>
-              </div>
+              
               <div class="row">
           <!-- Primera Columna -->
           <div class="col-12 col-md-4">
@@ -158,7 +151,6 @@
               </div>
           </div>
       </div>
-
       <!-- Botón de envío -->
       <button id="enviarFormulario" type="button" class="btn btn-primary">Enviar</button>
   </form>
@@ -181,6 +173,7 @@
 </body>
 <script src="js/sweetalert.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
 <script src="js\carga_lista.js"></script>
 

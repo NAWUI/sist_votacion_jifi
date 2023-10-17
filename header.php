@@ -54,7 +54,7 @@
                     <br>       
                         <a class="sideButtons d-flex align-items-center" href="dashboard.php"><i class="bi bi-map-fill" style="margin-right: 1vw;"></i> Registro de Listas</a>
          
-                        <a class="sideButtons d-flex align-items-center" href="lista_centro"><i class="bi bi-person-fill" style="margin-right: 1vw;"></i>Lista de (C.D.E)</a>
+                        <a class="sideButtons d-flex align-items-center" href="lista_centro.php"><i class="bi bi-person-fill" style="margin-right: 1vw;"></i>Lista de (C.D.E)</a>
 
                         <a class="sideButtons d-flex align-items-center" href="recount.php"><i class="bi bi-geo-alt-fill" style="margin-right: 1vw;"></i>Recuento de votos</a>
 
@@ -65,4 +65,3 @@
             <!-- SIDEBAR QUE APARECE FIN -->
     
         </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

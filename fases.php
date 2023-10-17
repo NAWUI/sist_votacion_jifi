@@ -21,8 +21,6 @@
             ?>
            
         <!-- HEADER FIN -->
-        <div class="container rounded border border-primary-subtle">
-
 <?php
 $query = "SELECT fase_fases FROM tbl_fases LIMIT 1";
 $fase = mysqli_query($conn, $query);
@@ -137,13 +135,7 @@ switch ($row_fase['fase_fases']) {
     </div>';
       break;
 }
-
 ?>
-</div>
-<script src="js/sweetalert.min.js"></script>
-<script src="js/jquery.min.js"></script>
-
-<script src="js/script.js"></script>
 <script>
     
  $(document).ready(function () {
@@ -169,7 +161,7 @@ switch ($row_fase['fase_fases']) {
     swal({
       icon: "success",
       text: ("Fase cambiada a: "+alertaa),
-    }).then(function(){ window.location.reload(); })
+      });
     // alert("Fase cambiada a: "+alertaa);
  
     $.ajax({
@@ -180,7 +172,7 @@ switch ($row_fase['fase_fases']) {
       },
       success: function (data) {
         console.log(data);
-     
+    
       },
     });
   });
@@ -203,6 +195,9 @@ switch ($row_fase['fase_fases']) {
     </div>
     <!-- End of .container -->
 </body>
+<script src="js/sweetalert.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
+<script src="js/script.js"></script>
 
 </html>

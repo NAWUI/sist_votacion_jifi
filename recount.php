@@ -16,29 +16,34 @@
 
 </head>
 <body>
-               <!-- HEADER INICIO -->
-               <?php 
-                include("header.php");
-            ?>
-           
-        <!-- HEADER FIN -->
 <?php
 include("connection.php");
+//include("ajax.php");
 
- $sql = mysqli_query($conn,"SELECT COUNT(*) AS `count` FROM `tbl_registro_voto` WHERE voto_almn = 1");
- $data = mysqli_fetch_assoc($sql);
- $votos = $data['count'];
- echo $votos;
+//echo $numeroV;
+// $id = $_POST['id1'];
+// //include ("session.php");
+// // secuencia que se encarga de traer de la base de datos los alumnos del curso
+$sql = mysqli_query($conn,"SELECT COUNT(*) AS `count` FROM `tbl_registro_voto` WHERE voto_almn = 1");
+$data = mysqli_fetch_assoc($sql);
+$votos = $data['count'];
 
+// //secuencia que se encarga de traer de la abse de datos los alumnos del curso que votaron
+// $sql1 = mysqli_query($conn,"SELECT COUNT(*) AS `count` FROM `tbl_registro_voto` WHERE voto_almn = 0");
+// $data1 = mysqli_fetch_assoc($sql1);
+// $votos = $data1['count1'];
+
+// $resta = $alumn - $votos;
 
         $select_products = mysqli_query($conn, "SELECT * FROM `tbl_listas`");
         while($fetch_product = mysqli_fetch_assoc($select_products)){
-           
+           //var_dump($fetch_product);
             if ($fetch_product['habilitada'] == 0){
                      $nombre_lista = $fetch_product['color'];
                      $etiquetas[] = $nombre_lista;
+
                      
-        $select_voto = mysqli_query($conn, "SELECT * FROM `tbl_listas` WHERE color = '$nombre_lista'");
+        $select_voto = mysqli_query($conn, "SELECT * FROM `tbl_listas` WHERE color = $nombre_lista");
         if($select_voto->num_rows > 0){
             while($fetch_voto = mysqli_fetch_assoc($select_voto)){
                 $voto = $fetch_voto['contadorVotos'];
@@ -50,49 +55,59 @@ include("connection.php");
 
  
                  
-    $select_voto1 = mysqli_query($conn, "SELECT * FROM `tbl_listas` where color = 'voto en blanco'");
+    $select_voto1 = mysqli_query($conn, "SELECT * FROM `tbl_listas` where color = voto en blanco ");
     if($select_voto1->num_rows > 0){
         while($fetch_voto1 = mysqli_fetch_assoc($select_voto1)){
             $voto1 = $fetch_voto1['contadorVotos'];
-            $etiquetas1[] = 'Voto en blanco';
+            $grupoV = $fetch_voto1['apellido_almn'];
+            $etiquetas1[] = 'Voto en blanco, grupo:'. " (" .$grupoV.")";
             $datosVentas1[] = $voto1;
                      };
+            }else {
+                $voto0 = 0;
+                 $datosVentas1[] = $voto0;        
             }
+ ?>      
 
-// // Tu consulta SQL para obtener los datos
-// $select_datos = mysqli_query($conn, "SELECT * FROM `tbl_listas` WHERE NOT color = 'voto en blanco'");
+<div class="row">
+    <div class="col">
+    <div class="container rounded border border-primary-subtle" style="position: relative; width:350px;">
 
-// // Comprobar si hay resultados
-// if ($select_datos->num_rows > 0) {
-//     while($row = mysqli_fetch_assoc($select_datos)) {
-//         // Obtener los datos de cada fila
-//         $voto = $row['color']; // Reemplaza 'votos' con el nombre real de la columna en tu base de datos
-?>
+<section class="products">
 
-
-        <div class="container rounded border border-primary-subtle" style="position: relative; width:350px;">
-            <section class="products">
-                <div class="box-container">
-                    <div aria-label="Basic example">
-                        <h3>Votos hasta el momento: <?php echo $voto; ?></h3>
-                    </div>
-                </div>
-                <canvas id="grafica"></canvas>
-            </section>
-
+<div class="box-container">
+   <div aria-label="Basic example">
+        <h3>Votos hasta el momento:<?php echo $votos;?> </h3>
+        
+    </div>
 </div>
-<br>
+<canvas id="grafica"></canvas>
+<h3>Votos Faltantes: <?php echo $resta;?></h3>
 <?php
-//     }
-// } else {
-//     // Mostrar un mensaje si no hay resultados
-//     echo "No se encontraron resultados.";
-// }
-
-// // Cerrar la conexión a la base de datos
-// mysqli_close($conn);
+$select_produts = mysqli_query($conn, "SELECT * FROM `tbl_alumnos` WHERE id_curso = $id");
+       
+while($fetch_produt = mysqli_fetch_assoc($select_produts)){
+   //var_dump($fetch_product);
+    if ( $fetch_produt['id_curso'] == $id && $fetch_produt['voto_almn'] == 0){
+             $nombre = $fetch_produt['nombre_almn'];
+             $apellido = $fetch_produt['apellido_almn'];
+             $dni = $fetch_produt['dni_almn'];
+             $alumno =  $nombre. " " .$apellido;
+             $com = $dni. ";" .$alumno;
+ ?>
+             <ul>
+             
+             <li><?php echo $com; ?></li>
+             </ul>
+             
+<?php
+};
+};
 ?>
 
+</section>
+</div>
+    </div>
     
     <div class="col">
     <div class="container rounded border border-primary-subtle" style="position: relative; width:350px">
@@ -177,7 +192,7 @@ include("connection.php");
     </script>
 <!-- custom js file link  -->
 <!--    <script src="chart.min.js"></script> -->
-<script src="js/chart.min.js"></script>
+<script src="Chart.js"></script>
 
 </body>
 <script src="js/sweetalert.min.js"></script>
