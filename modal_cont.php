@@ -1,5 +1,5 @@
 <?php
-@include 'connection.php';
+include 'connection.php';
 
 if (isset($_POST['color'])) {
     $nom_lista = $_POST['color'];
