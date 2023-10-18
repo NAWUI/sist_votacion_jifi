@@ -32,6 +32,7 @@ $(document).on('click','#botonV', function(){
         id1=$(this).attr('id');
         id2=$(this).attr('value'); 
         console.log(id2);
+        console.log(id1);
       };
     
    });
@@ -50,7 +51,7 @@ $(document).on('click','#botonV', function(){
 
   $.ajax({
     type: "POST",
-    url: "vote_action.php",
+    url: "votar_action.php",
     data: {id1,id2,},
     cache: false,
     success: function (e) { 
@@ -60,7 +61,7 @@ $(document).on('click','#botonV', function(){
         text: "Votacion completeda. Se cerrará esta sesión.",             
         icon: "success",
         timer: 1400,
-         button: false,}).then(function(){window.location = "http://localhost/sist_votacion/login.php";});
+         button: false,}).then(function(){window.location = "login.php";});
     },
     error: function (xhr, status, error) {
     console.error(xhr);

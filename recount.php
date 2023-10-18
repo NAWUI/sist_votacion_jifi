@@ -23,6 +23,20 @@
            
         <!-- HEADER FIN -->
 <?php
+$query = "SELECT fase_fases FROM tbl_fases LIMIT 1";
+$fase = mysqli_query($conn, $query);
+$row_fase = mysqli_fetch_array($fase);
+echo '<script> 
+                      console.log('.$row_fase['fase_fases'].'); 
+                    </script>';
+
+                    switch ($row_fase['fase_fases']) {
+                        case 0:
+                            echo '<script> function miFuncion() {swal({icon: "info",text: "No hay listas cargadas." ,}).then(function(){ window.location = "dashboard.php"; })}</script>';
+                            echo "<script>setTimeout(miFuncion, 500);</script>"; 
+                            break;
+                        case 1:
+
 include("connection.php"); // Archivo de conexión a la base de datos
 
 $etiquetas = []; // Inicializar el array de etiquetas
@@ -180,8 +194,13 @@ const grafica = document.querySelector("#grafica");
             data: datos,
             options: opciones
         });
-    </script>
-    <div class="" style="
+    </script>   
+    <?php 
+    break;
+                        
+                        }
+                        ?>
+                        <div class="" style="
         position:   fixed;
         bottom: 0; 
         width:100%;">
@@ -194,5 +213,6 @@ const grafica = document.querySelector("#grafica");
             </footer>
     </div>
 </body>
+<script src="js/sweetalert.min.js"></script>
 </html>
 

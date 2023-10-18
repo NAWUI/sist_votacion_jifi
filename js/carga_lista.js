@@ -15,8 +15,7 @@ $(document).ready(function(){
                         icon: "success",
                         title: "Formulario enviado correctamente",
                         timer: 1100,
-                        button: false
-                    });
+                        button: false,}).then(function(){window.location = "lista_centro.php";});
                 } else if (data == "Rellene todos los campos.") {
                     swal({
                         icon: "error",
