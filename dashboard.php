@@ -30,7 +30,7 @@
 
 <div class="rounded p-4 bg-light">
   <div class="h-25">
-      <div class="display-4 d-flex justify-content-center h-100 align-items-center">Formulario de Elecciones</div>
+      <div class="display-4 d-flex justify-content-center h-100 align-items-center">Formulario deecciones</div>
   </div>
   <form id="formularioElecciones">
       <div class="row">
