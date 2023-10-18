@@ -133,9 +133,29 @@ switch ($row_fase['fase_fases']) {
 
 break;
 case 2:
-echo '<script> 
-   console.log("hola mundo"); 
- </script>';
+
+   $recount = mysqli_query($conn, "SELECT * FROM `tbl_listas` ORDER BY `contadorVotos` DESC LIMIT 1 ");
+   $row_recount =  mysqli_fetch_assoc($recount);
+?>
+<h1 class="heading">Ganador:</h1>
+
+
+
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <div class="card shadow">
+        <div class="card-body text-center">
+          <p class="h4">Lista <?php echo $row_recount['color'] ?></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<?php
 break;
 }
    ?>
