@@ -73,7 +73,6 @@ switch ($row_fase['fase_fases']) {
                $select_listas = mysqli_query($conn, "SELECT * FROM `tbl_listas` WHERE NOT color = 'voto en blanco'");
                if(mysqli_num_rows($select_listas) > 0){
                   while($fetch_listas = mysqli_fetch_assoc($select_listas)){
-                     $val_mod = $fetch_listas['color'];
                      $val = $fetch_listas['id'];
                   if ($fetch_listas['habilitada'] == 1){
                
@@ -83,9 +82,9 @@ switch ($row_fase['fase_fases']) {
                <div class="box">
                   <h3>Lista <?php echo $fetch_listas['color']; ?></h3>
 
-                  <input type="button" class="btn-check open" id="<?php echo $val_mod; ?>" value="<?php echo $val_mod; ?>" autocomplete="off">
+                  <input type="button" class="btn-check open" id="<?php echo $val; ?>" value="<?php echo $val; ?>" autocomplete="off">
 
-                  <label class="btn btn-outline-success" for="<?php echo $val_mod; ?>">Ver propuesta</label>
+                  <label class="btn btn-outline-success" for="<?php echo $val; ?>">Ver propuesta</label>
 
                   <input type="checkbox" class="btn-check" id="<?php echo $val; ?>" value= "<?php echo $val; ?>" autocomplete="off">
                   <label class="btn btn-outline-success" for="<?php echo $val; ?>">Seleccionar</label>
@@ -186,7 +185,7 @@ break;
             $.ajax({
                 url: 'modal_cont.php', // Reemplaza 'obtener_datos.php' con la URL de tu script de servidor para obtener datos
                 method: 'POST',
-                data: { color: buttonId },
+                data: { id: buttonId },
                 success: function (response) {
                     // Actualiza el contenido del modal con los datos obtenidos
                     modalContent.innerHTML = response;
