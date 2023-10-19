@@ -27,16 +27,48 @@ $gyd_vocal1 = mysqli_real_escape_string($conn, $_POST['gyd_vocal1']);
 $gyd_vocal2 = mysqli_real_escape_string($conn, $_POST['gyd_vocal2']);
 $prof_acesor = mysqli_real_escape_string($conn, $_POST['prof_acesor']);
 $prof_acesorsup = mysqli_real_escape_string($conn, $_POST['prof_acesorsup']);
+
+$check_query = "SELECT * FROM `tbl_listas` WHERE 
+                `color` = '$color' AND 
+                `propuesta` = '$propuesta' AND 
+                `presidente` = '$presidente' AND 
+                `sec_administracion` = '$sec_administracion' AND 
+                `sec_documentacion` = '$sec_documentacion' AND 
+                `tesorero` = '$tesorero' AND 
+                `vocal_programacion` = '$vocal_programacion' AND 
+                `vocal_construccion` = '$vocal_construccion' AND 
+                `vocal_turismo` = '$vocal_turismo' AND 
+                `vocal_cicloBasico1` = '$vocal_cicloBasico1' AND 
+                `vocal_cicloBasico2` = '$vocal_cicloBasico2' AND 
+                `olimp_representante` = '$olimp_representante' AND 
+                `olimp_vocal1` = '$olimp_vocal1' AND 
+                `olimp_vocal2` = '$olimp_vocal2' AND 
+                `eventos_representante` = '$eventos_representante' AND 
+                `eventos_vocal1` = '$eventos_vocal1' AND 
+                `eventos_vocal2` = '$eventos_vocal2' AND 
+                `prensa_representante` = '$prensa_representante' AND 
+                `prensa_vocal1` = '$prensa_vocal1' AND 
+                `prensa_vocal2` = '$prensa_vocal2' AND 
+                `gyd_representante` = '$gyd_representante' AND 
+                `gyd_vocal1` = '$gyd_vocal1' AND 
+                `gyd_vocal2` = '$gyd_vocal2' AND 
+                `prof_acesor` = '$prof_acesor' AND 
+                `prof_acesorsup` = '$prof_acesorsup'"; // Agrega las demás columnas aquí
+
+$check_result = mysqli_query($conn, $check_query);
+
 if (empty($color) || empty($propuesta) || empty($presidente) || empty($sec_administracion) || empty($sec_documentacion) || empty($tesorero) || empty($vocal_programacion) || empty($vocal_construccion) || empty($vocal_turismo) || empty($vocal_cicloBasico1) || empty($vocal_cicloBasico2) || empty($olimp_representante) || empty($olimp_vocal1) || empty($olimp_vocal2) || empty($eventos_representante) || empty($eventos_vocal1) || empty($eventos_vocal2) || empty($prensa_representante) || empty($prensa_vocal1) || empty($prensa_vocal2) || empty($gyd_representante) || empty($gyd_vocal1) || empty($gyd_vocal2) || empty($prof_acesor) || empty($prof_acesorsup)) {
     echo "Rellene todos los campos.";
+} else if (mysqli_num_rows($check_result) > 0){
+    echo "Ya existe un registro con datos iguales.";
 } else {
     $check_query = "SELECT * FROM `tbl_listas` WHERE `color` = 'voto en blanco'";
     $check_result = mysqli_query($conn, $check_query);
     if(mysqli_num_rows($check_result) == 0) {
         // No existe un registro con color 'voto en blanco', insertar nuevo registro
-        $sql = "INSERT INTO `tbl_listas`(`color`, `propuesta`, `presidente`, `sec_administracion`, `sec_documentacion`, `tesorero`, `vocal_programacion`, `vocal_construccion`, `vocal_turismo`, `vocal_cicloBasico1`, `vocal_cicloBasico2`, `olimp_representante`, `olimp_vocal1`, `olimp_vocal2`, `eventos_representante`, `eventos_vocal1`, `eventos_vocal2`, `prensa_representante`, `prensa_vocal1`, `prensa_vocal2`, `gyd_representante`, `gyd_vocal1`, `gyd_vocal2`, `prof_acesor`, `prof_acesorsup`, `habilitada`, `contadorVotos`) VALUES ('voto en blanco','','','','','','','','','','','','','','','','','','','','','','','','','','','1','0')";
-        $sql = "INSERT INTO `tbl_listas`(`color`, `propuesta`, `presidente`, `sec_administracion`, `sec_documentacion`, `tesorero`, `vocal_programacion`, `vocal_construccion`, `vocal_turismo`, `vocal_cicloBasico1`, `vocal_cicloBasico2`, `olimp_representante`, `olimp_vocal1`, `olimp_vocal2`, `eventos_representante`, `eventos_vocal1`, `eventos_vocal2`, `prensa_representante`, `prensa_vocal1`, `prensa_vocal2`, `gyd_representante`, `gyd_vocal1`, `gyd_vocal2`, `prof_acesor`, `prof_acesorsup`, `habilitada`, `contadorVotos`) VALUES ('$color','$propuesta','$presidente','$sec_administracion','$sec_documentacion','$tesorero','$vocal_programacion','$vocal_construccion','$vocal_turismo','$vocal_cicloBasico1','$vocal_cicloBasico2','$olimp_representante','$olimp_vocal1','$olimp_vocal2','$eventos_representante','$eventos_vocal1','$eventos_vocal2','$prensa_representante','$prensa_vocal1','$prensa_vocal2','$gyd_representante','$gyd_vocal1','$gyd_vocal2','$prof_acesor','$prof_acesorsup',0,0)";
-        if (mysqli_query($conn, $sql)) {
+        $sql = "INSERT INTO `tbl_listas`(`color`, `habilitada`, `contadorVotos`) VALUES ('voto en blanco', 1, 0)";
+        $sql1 = "INSERT INTO `tbl_listas`(`color`, `propuesta`, `presidente`, `sec_administracion`, `sec_documentacion`, `tesorero`, `vocal_programacion`, `vocal_construccion`, `vocal_turismo`, `vocal_cicloBasico1`, `vocal_cicloBasico2`, `olimp_representante`, `olimp_vocal1`, `olimp_vocal2`, `eventos_representante`, `eventos_vocal1`, `eventos_vocal2`, `prensa_representante`, `prensa_vocal1`, `prensa_vocal2`, `gyd_representante`, `gyd_vocal1`, `gyd_vocal2`, `prof_acesor`, `prof_acesorsup`, `habilitada`, `contadorVotos`) VALUES ('$color','$propuesta','$presidente','$sec_administracion','$sec_documentacion','$tesorero','$vocal_programacion','$vocal_construccion','$vocal_turismo','$vocal_cicloBasico1','$vocal_cicloBasico2','$olimp_representante','$olimp_vocal1','$olimp_vocal2','$eventos_representante','$eventos_vocal1','$eventos_vocal2','$prensa_representante','$prensa_vocal1','$prensa_vocal2','$gyd_representante','$gyd_vocal1','$gyd_vocal2','$prof_acesor','$prof_acesorsup',0,0)";
+        if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql1)) {
             echo "Exito";
         } else {
             echo "Error: " . mysqli_error($conn);

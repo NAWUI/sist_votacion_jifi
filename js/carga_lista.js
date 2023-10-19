@@ -15,12 +15,18 @@ $(document).ready(function(){
                         icon: "success",
                         title: "Formulario enviado correctamente",
                         timer: 1100,
-                        button: false
-                    });
+                        button: false,}).then(function(){window.location = "lista_centro.php";});
                 } else if (data == "Rellene todos los campos.") {
                     swal({
                         icon: "error",
                         text: "Rellene todos los campos.",
+                        timer: 1500,
+                        button: false
+                    });
+                }else if (data == "Ya existe un registro con datos iguales.") {
+                    swal({
+                        icon: "error",
+                        text: "Ya existe un registro con datos iguales.",
                         timer: 1500,
                         button: false
                     });

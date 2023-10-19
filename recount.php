@@ -23,6 +23,20 @@
            
         <!-- HEADER FIN -->
 <?php
+$query = "SELECT fase_fases FROM tbl_fases LIMIT 1";
+$fase = mysqli_query($conn, $query);
+$row_fase = mysqli_fetch_array($fase);
+echo '<script> 
+                      console.log('.$row_fase['fase_fases'].'); 
+                    </script>';
+
+                    switch ($row_fase['fase_fases']) {
+                        case 0:
+                            echo '<script> function miFuncion() {swal({icon: "info",text: "No hay listas cargadas." ,}).then(function(){ window.location = "dashboard.php"; })}</script>';
+                            echo "<script>setTimeout(miFuncion, 500);</script>"; 
+                            break;
+                        case 1:
+
 include("connection.php"); // Archivo de conexión a la base de datos
 
 $etiquetas = []; // Inicializar el array de etiquetas
@@ -30,19 +44,6 @@ $datosVentas = []; // Inicializar el array de datos
 $colores = []; // Inicializar el array de colores
 
 $select_products = mysqli_query($conn, "SELECT color, contadorVotos FROM `tbl_listas` ");
-
-if ($select_products) {
-    while ($fetch_product = mysqli_fetch_assoc($select_products)) {
-        $nombre_lista = $fetch_product['color'];
-        $etiquetas[] = $nombre_lista;
-        $datosVentas[] = $fetch_product['contadorVotos'];
-        $total_votos = array_sum($datosVentas);
-        // Definir colores basados en el nombre de la lista (puedes personalizar esta lógica)
-        $colores[$nombre_lista] = obtenerColorParaLista($nombre_lista);
-    }
-} else {
-    echo "Error en la consulta: " . mysqli_error($conn);
-}
 
 function obtenerColorParaLista($nombre_lista) {
     // Lógica para asignar colores basados en el nombre de la lista
@@ -85,6 +86,21 @@ function obtenerColorParaLista($nombre_lista) {
         return 'gray';
     }
 }
+
+if ($select_products) {
+    while ($fetch_product = mysqli_fetch_assoc($select_products)) {
+        $nombre_lista = $fetch_product['color'];
+        $etiquetas[] = $nombre_lista;
+        $datosVentas[] = $fetch_product['contadorVotos'];
+        $total_votos = array_sum($datosVentas);
+        // Definir colores basados en el nombre de la lista (puedes personalizar esta lógica)
+        $colores[$nombre_lista] = obtenerColorParaLista($nombre_lista);
+    }
+} else {
+    echo "Error en la consulta: " . mysqli_error($conn);
+}
+
+
 ?>
 <style>
 
@@ -180,8 +196,13 @@ const grafica = document.querySelector("#grafica");
             data: datos,
             options: opciones
         });
-    </script>
-    <div class="" style="
+    </script>   
+    <?php 
+    break;
+                        
+                        }
+                        ?>
+                        <div class="" style="
         position:   fixed;
         bottom: 0; 
         width:100%;">
@@ -194,5 +215,9 @@ const grafica = document.querySelector("#grafica");
             </footer>
     </div>
 </body>
+<script src="Chart.js"></script>
+<script src="js/sweetalert.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/script.js"></script>
 </html>
 
