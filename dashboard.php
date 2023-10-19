@@ -13,6 +13,11 @@
     <!-- <link rel="stylesheet" href="css/style_login.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap 5 CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
 </head>
 <body>
            <!-- HEADER INICIO -->
@@ -50,32 +55,46 @@
           <div class="col-12 col-md-4">
               <div class="form-group">
                   <label for="presidente">Presidente</label>
-                  <input type="text" class="form-control" id="presidente" name="presidente">
+                  <!-- <input type="text" class="form-control" id="presidente" name="presidente"> -->
+                  <select class="form-select" id="presidente">
+                  </select>
               </div>
               <div class="form-group">
                   <label for="sec_administracion">Secretario de Administración</label>
-                  <input type="text" class="form-control" id="sec_administracion" name="sec_administracion">
+                  <!-- <input type="text" class="form-control" id="sec_administracion" name="sec_administracion"> -->
+                  <select class="form-select" id="sec_administracion">
+                  </select>
               </div>
               <div class="form-group">
                   <label for="sec_documentacion">Secretario de Documentación</label>
                   <input type="text" class="form-control" id="sec_documentacion" name="sec_documentacion">
+                  <select class="form-select" id="sec_administracion">
+                  </select>
               </div>
               <div class="form-group">
                   <label for="tesorero">Tesorero</label>
                   <input type="text" class="form-control" id="tesorero" name="tesorero">
+                  <select class="form-select" id="sec_administracion">
+                  </select>
               </div>
               
               <div class="form-group">
                   <label for="eventos_representante">Representante de Eventos</label>
                   <input type="text" class="form-control" id="eventos_representante" name="eventos_representante">
+                  <select class="form-select" id="eventos_representante">
+                  </select>
               </div>
               <div class="form-group">
                   <label for="eventos_vocal1">Vocal 1 de Eventos</label>
                   <input type="text" class="form-control" id="eventos_vocal1" name="eventos_vocal1">
+                  <select class="form-select" id="eventos_vocal1">
+                  </select>
               </div>
               <div class="form-group">
                   <label for="eventos_vocal2">Vocal 2 de Eventos</label>
                   <input type="text" class="form-control" id="eventos_vocal2" name="eventos_vocal2">
+                  <select class="form-select" id="eventos_vocal2">
+                  </select>
               </div>
           </div>
           <!-- Segunda Columna -->
@@ -159,6 +178,7 @@
 <style>
 
 
+
 </style>
     <div class="footer-wrapper">
         <footer class="bg-light text-center text-lg-start">
@@ -170,11 +190,19 @@
         </footer>
     </div>
 
-</body>
+<!-- Bootstrap 5 JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- Select2 JS -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/js/select2.min.js"></script> -->
+<script src="js/busqueda.js"></script>
 
 <script src="js/sweetalert.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
 <script src="js/script.js"></script>
 <script src="js\carga_lista.js"></script>
+
+</body>
+
 
 </html>
