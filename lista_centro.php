@@ -41,6 +41,7 @@
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -62,6 +63,9 @@
       </td>
       <td>
         <button id="<?php echo $id; ?>" value="<?php echo $id; ?>" class="btn btn-success open">Ver info</button>
+      </td>
+      <td>
+        <a href="modif_cde.php?id=<?php echo $id; ?>"><button class="btn btn-secondary">Editar</button></a>
       </td>
       <td><?php
             if ($habilitada == 0) {
