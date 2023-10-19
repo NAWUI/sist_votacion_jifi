@@ -45,19 +45,6 @@ $colores = []; // Inicializar el array de colores
 
 $select_products = mysqli_query($conn, "SELECT color, contadorVotos FROM `tbl_listas` ");
 
-if ($select_products) {
-    while ($fetch_product = mysqli_fetch_assoc($select_products)) {
-        $nombre_lista = $fetch_product['color'];
-        $etiquetas[] = $nombre_lista;
-        $datosVentas[] = $fetch_product['contadorVotos'];
-        $total_votos = array_sum($datosVentas);
-        // Definir colores basados en el nombre de la lista (puedes personalizar esta lógica)
-        $colores[$nombre_lista] = obtenerColorParaLista($nombre_lista);
-    }
-} else {
-    echo "Error en la consulta: " . mysqli_error($conn);
-}
-
 function obtenerColorParaLista($nombre_lista) {
     // Lógica para asignar colores basados en el nombre de la lista
     // Puedes tener un array de nombres y colores predefinidos aquí
@@ -99,6 +86,21 @@ function obtenerColorParaLista($nombre_lista) {
         return 'gray';
     }
 }
+
+if ($select_products) {
+    while ($fetch_product = mysqli_fetch_assoc($select_products)) {
+        $nombre_lista = $fetch_product['color'];
+        $etiquetas[] = $nombre_lista;
+        $datosVentas[] = $fetch_product['contadorVotos'];
+        $total_votos = array_sum($datosVentas);
+        // Definir colores basados en el nombre de la lista (puedes personalizar esta lógica)
+        $colores[$nombre_lista] = obtenerColorParaLista($nombre_lista);
+    }
+} else {
+    echo "Error en la consulta: " . mysqli_error($conn);
+}
+
+
 ?>
 <style>
 
@@ -213,6 +215,9 @@ const grafica = document.querySelector("#grafica");
             </footer>
     </div>
 </body>
+<script src="Chart.js"></script>
 <script src="js/sweetalert.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/script.js"></script>
 </html>
 
