@@ -23,6 +23,13 @@ $(document).ready(function(){
                         timer: 1500,
                         button: false
                     });
+                }else if (data == "Ya existe un registro con datos iguales.") {
+                    swal({
+                        icon: "error",
+                        text: "Ya existe un registro con datos iguales.",
+                        timer: 1500,
+                        button: false
+                    });
                 }else{
                     swal({
                         icon: "error",

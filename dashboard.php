@@ -34,7 +34,7 @@
 
 <div class="rounded p-4 bg-light">
   <div class="h-25">
-      <div class="display-4 d-flex justify-content-center h-100 align-items-center">Formulario deecciones</div>
+      <div class="display-4 d-flex justify-content-center h-100 align-items-center">Formulario de elecciónes</div>
   </div>
   <form id="formularioElecciones">
       <div class="row">
@@ -53,133 +53,164 @@
               <div class="row">
           <!-- Primera Columna -->
           <div class="col-12 col-md-4">
-              <div class="form-group">
-                  <label for="presidente">Presidente</label>
-                  <!-- <input type="text" class="form-control" id="presidente" name="presidente"> -->
-                  <select class="form-select" id="presidente">
-                  </select>
-              </div>
-              <div class="form-group">
-                  <label for="sec_administracion">Secretario de Administración</label>
-                  <!-- <input type="text" class="form-control" id="sec_administracion" name="sec_administracion"> -->
-                  <select class="form-select" id="sec_administracion">
-                  </select>
-              </div>
-              <div class="form-group">
-                  <label for="sec_documentacion">Secretario de Documentación</label>
-                  <input type="text" class="form-control" id="sec_documentacion" name="sec_documentacion">
-                  <select class="form-select" id="sec_administracion">
-                  </select>
-              </div>
-              <div class="form-group">
-                  <label for="tesorero">Tesorero</label>
-                  <input type="text" class="form-control" id="tesorero" name="tesorero">
-                  <select class="form-select" id="sec_administracion">
-                  </select>
-              </div>
-              
-              <div class="form-group">
-                  <label for="eventos_representante">Representante de Eventos</label>
-                  <input type="text" class="form-control" id="eventos_representante" name="eventos_representante">
-                  <select class="form-select" id="eventos_representante">
-                  </select>
-              </div>
-              <div class="form-group">
-                  <label for="eventos_vocal1">Vocal 1 de Eventos</label>
-                  <input type="text" class="form-control" id="eventos_vocal1" name="eventos_vocal1">
-                  <select class="form-select" id="eventos_vocal1">
-                  </select>
-              </div>
-              <div class="form-group">
-                  <label for="eventos_vocal2">Vocal 2 de Eventos</label>
-                  <input type="text" class="form-control" id="eventos_vocal2" name="eventos_vocal2">
-                  <select class="form-select" id="eventos_vocal2">
-                  </select>
-              </div>
-          </div>
-          <!-- Segunda Columna -->
-          <div class="col-12 col-md-4">
-              <div class="form-group">
-                  <label for="vocal_programacion">Vocal de Programación</label>
-                  <input type="text" class="form-control" id="vocal_programacion" name="vocal_programacion">
-              </div>
-              <div class="form-group">
-                  <label for="vocal_construccion">Vocal de Construcción</label>
-                  <input type="text" class="form-control" id="vocal_construccion" name="vocal_construccion">
-              </div>
-              <div class="form-group">
-                  <label for="vocal_turismo">Vocal de Turismo</label>
-                  <input type="text" class="form-control" id="vocal_turismo" name="vocal_turismo">
-              </div>
-              <div class="form-group">
-                  <label for="vocal_cicloBasico1">Vocal de Ciclo Básico 1</label>
-                  <input type="text" class="form-control" id="vocal_cicloBasico1" name="vocal_cicloBasico1">
-              </div>
-              <div class="form-group">
-                  <label for="vocal_cicloBasico2">Vocal de Ciclo Básico 2</label>
-                  <input type="text" class="form-control" id="vocal_cicloBasico2" name="vocal_cicloBasico2">
-              </div>
-              <div class="form-group">
-                  <label for="olimp_representante">Representante de Olimpiadas</label>
-                  <input type="text" class="form-control" id="olimp_representante" name="olimp_representante">
-              </div>
-              <div class="form-group">
-                  <label for="olimp_vocal1">Vocal 1 de Olimpiadas</label>
-                  <input type="text" class="form-control" id="olimp_vocal1" name="olimp_vocal1">
-              </div>
-              <div class="form-group">
-                  <label for="olimp_vocal2">Vocal 2 de Olimpiadas</label>
-                  <input type="text" class="form-control" id="olimp_vocal2" name="olimp_vocal2">
-              </div>
-          </div>
-          <!-- Tercera Columna -->
-          <div class="col-12 col-md-4">
-             
-              <div class="form-group">
-                  <label for="prensa_representante">Representante de Prensa</label>
-                  <input type="text" class="form-control" id="prensa_representante" name="prensa_representante">
-              </div>
-              <div class="form-group">
-                  <label for="prensa_vocal1">Vocal 1 de Prensa</label>
-                  <input type="text" class="form-control" id="prensa_vocal1" name="prensa_vocal1">
-              </div>
-              <div class="form-group">
-                  <label for="prensa_vocal2">Vocal 2 de Prensa</label>
-                  <input type="text" class="form-control" id="prensa_vocal2" name="prensa_vocal2">
-              </div>
-              <div class="form-group">
-                  <label for="gyd_representante">Representante de Gyd</label>
-                  <input type="text" class="form-control" id="gyd_representante" name="gyd_representante">
-              </div>
-              <div class="form-group">
-                  <label for="gyd_vocal1">Vocal 1 de Gyd</label>
-                  <input type="text" class="form-control" id="gyd_vocal1" name="gyd_vocal1">
-              </div>
-              <div class="form-group">
-                  <label for="gyd_vocal2">Vocal 2 de Gyd</label>
-                  <input type="text" class="form-control" id="gyd_vocal2" name="gyd_vocal2">
-              </div>
-              <div class="form-group">
-                  <label for="prof_acesor">Profesor Asesor</label>
-                  <input type="text" class="form-control" id="prof_acesor" name="prof_acesor">
-              </div>
-              <div class="form-group">
-                  <label for="prof_acesorsup">Profesor Asesor Suplente</label>
-                  <input type="text" class="form-control" id="prof_acesorsup" name="prof_acesorsup">
-              </div>
-          </div>
+    <div class="form-group">
+        <label for="presidente">Presidente</label>
+        <select class="form-select" id="presidente" name="presidente">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="sec_administracion">Secretario de Administración</label>
+        <select class="form-select" id="sec_administracion" name="sec_administracion">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="sec_documentacion">Secretario de Documentación</label>
+        <select class="form-select" id="sec_documentacion" name="sec_documentacion">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="tesorero">Tesorero</label>
+        <select class="form-select" id="tesorero" name="tesorero">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="eventos_representante">Representante de Eventos</label>
+        <select class="form-select" id="eventos_representante" name="eventos_representante">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="eventos_vocal1">Vocal 1 de Eventos</label>
+        <select class="form-select" id="eventos_vocal1" name="eventos_vocal1">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="eventos_vocal2">Vocal 2 de Eventos</label>
+        <select class="form-select" id="eventos_vocal2" name="eventos_vocal2">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+</div>
+
+<!-- Segunda Columna -->
+<div class="col-12 col-md-4">
+    <div class="form-group">
+        <label for="vocal_programacion">Vocal de Programación</label>
+        <select class="form-select" id="vocal_programacion" name="vocal_programacion">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="vocal_construccion">Vocal de Construcción</label>
+        <select class="form-select" id="vocal_construccion" name="vocal_construccion">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="vocal_turismo">Vocal de Turismo</label>
+        <select class="form-select" id="vocal_turismo" name="vocal_turismo">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="vocal_cicloBasico1">Vocal de Ciclo Básico 1</label>
+        <select class="form-select" id="vocal_cicloBasico1" name="vocal_cicloBasico1">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="vocal_cicloBasico2">Vocal de Ciclo Básico 2</label>
+        <select class="form-select" id="vocal_cicloBasico2" name="vocal_cicloBasico2">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="olimp_representante">Representante de Olimpiadas</label>
+        <select class="form-select" id="olimp_representante" name="olimp_representante">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="olimp_vocal1">Vocal 1 de Olimpiadas</label>
+        <select class="form-select" id="olimp_vocal1" name="olimp_vocal1">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="olimp_vocal2">Vocal 2 de Olimpiadas</label>
+        <select class="form-select" id="olimp_vocal2" name="olimp_vocal2">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+</div>
+
+<!-- Tercera Columna -->
+<div class="col-12 col-md-4">
+    <div class="form-group">
+        <label for="prensa_representante">Representante de Prensa</label>
+        <select class="form-select" id="prensa_representante" name="prensa_representante">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="prensa_vocal1">Vocal 1 de Prensa</label>
+        <select class="form-select" id="prensa_vocal1" name="prensa_vocal1">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="prensa_vocal2">Vocal 2 de Prensa</label>
+        <select class="form-select" id="prensa_vocal2" name="prensa_vocal2">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="gyd_representante">Representante de Gyd</label>
+        <select class="form-select" id="gyd_representante" name="gyd_representante">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="gyd_vocal1">Vocal 1 de Gyd</label>
+        <select class="form-select" id="gyd_vocal1" name="gyd_vocal1">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="gyd_vocal2">Vocal 2 de Gyd</label>
+        <select class="form-select" id="gyd_vocal2" name="gyd_vocal2">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="prof_acesor">Profesor Asesor</label>
+        <select class="form-select" id="prof_acesor" name="prof_acesor">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="prof_acesorsup">Profesor Asesor Suplente</label>
+        <select class="form-select" id="prof_acesorsup" name="prof_acesorsup">
+            <!-- Add options for the select element if needed -->
+        </select>
+    </div>
+</div>
+
       </div>
-      <!-- Botón de envío -->
-      <button id="enviarFormulario" type="button" class="btn btn-primary">Enviar</button>
   </form>
+
+</div>
+<button id="enviarFormulario" type="button" class="btn btn-primary">Enviar</button>
 </div>
 </div>
-</div>
-<style>
 
 
 
-</style>
     <div class="footer-wrapper">
         <footer class="bg-light text-center text-lg-start">
             <!-- Copyright -->
@@ -190,15 +221,14 @@
         </footer>
     </div>
 
-<!-- Bootstrap 5 JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <!-- Select2 JS -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/js/select2.min.js"></script> -->
-<script src="js/busqueda.js"></script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script src="js/busqueda.js"></script>
+<script src="js/busqueda_prof.js"></script>
 <script src="js/sweetalert.min.js"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
+
 <script src="js/script.js"></script>
 <script src="js\carga_lista.js"></script>
 
