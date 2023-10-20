@@ -31,7 +31,30 @@ $prof_acesorsup = mysqli_real_escape_string($conn, $_POST['prof_acesorsup']);
 if (empty($color) || empty($propuesta) || empty($presidente) || empty($sec_administracion) || empty($sec_documentacion) || empty($tesorero) || empty($vocal_programacion) || empty($vocal_construccion) || empty($vocal_turismo) || empty($vocal_cicloBasico1) || empty($vocal_cicloBasico2) || empty($olimp_representante) || empty($olimp_vocal1) || empty($olimp_vocal2) || empty($eventos_representante) || empty($eventos_vocal1) || empty($eventos_vocal2) || empty($prensa_representante) || empty($prensa_vocal1) || empty($prensa_vocal2) || empty($gyd_representante) || empty($gyd_vocal1) || empty($gyd_vocal2) || empty($prof_acesor) || empty($prof_acesorsup)) {
     echo "Rellene todos los campos.";
 } else {
-    $check_query = "SELECT * FROM `tbl_listas` WHERE `color` = '$color'";
+    $check_query = "SELECT * FROM `tbl_listas` WHERE
+    `presidente`='$presidente' OR
+    `sec_administracion`='$sec_administracion' OR
+    `sec_documentacion`='$sec_documentacion' OR
+    `tesorero`='$tesorero' OR
+    `vocal_programacion`='$vocal_programacion' OR
+    `vocal_construccion`='$vocal_construccion' OR
+    `vocal_turismo`='$vocal_turismo' OR
+    `vocal_cicloBasico1`='$vocal_cicloBasico1' OR
+    `vocal_cicloBasico2`='$vocal_cicloBasico2' OR
+    `olimp_representante`='$olimp_representante' OR
+    `olimp_vocal1`='$olimp_vocal1' OR
+    `olimp_vocal2`='$olimp_vocal2' OR
+    `eventos_representante`='$eventos_representante' OR
+    `eventos_vocal1`='$eventos_vocal1' OR
+    `eventos_vocal2`='$eventos_vocal2' OR
+    `prensa_representante`='$prensa_representante' OR
+    `prensa_vocal1`='$prensa_vocal1' OR
+    `prensa_vocal2`='$prensa_vocal2' OR
+    `gyd_representante`='$gyd_representante' OR
+    `gyd_vocal1`='$gyd_vocal1' OR
+    `gyd_vocal2`='$gyd_vocal2' OR
+    `prof_acesor`='$prof_acesor' OR
+    `prof_acesorsup`='$prof_acesorsup'";
     $check_result = mysqli_query($conn, $check_query);
     if(mysqli_num_rows($check_result) == 0) {
         // No existe un registro con color 'voto en blanco', insertar nuevo registro
@@ -70,7 +93,7 @@ if (empty($color) || empty($propuesta) || empty($presidente) || empty($sec_admin
             echo "Error: " . mysqli_error($conn);
         }
     }else{
-        echo 'Color ya existente, elija otro.';
+        echo 'Se ha repetido un DNI de otra lista.';
 }
 }    
 
