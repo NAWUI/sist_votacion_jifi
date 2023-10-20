@@ -21,6 +21,8 @@
             ?>
            
         <!-- HEADER FIN -->
+        <div class="container rounded border border-primary-subtle">
+
 <?php
 $query = "SELECT fase_fases FROM tbl_fases LIMIT 1";
 $fase = mysqli_query($conn, $query);
@@ -135,26 +137,12 @@ switch ($row_fase['fase_fases']) {
     </div>';
       break;
 }
-?>
 
-  <!-- Remove the container if you want to extend the Footer to full width. -->
-  <div class="" style="
-        position:   fixed;
-        bottom: 0; 
-        width:100%;">
-            <footer class="bg-light text-center text-lg-start">
-            <!-- Copyright -->
-                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                    <h6>Sistema creado por los alumnos de 7mo C de la E.E.S.T N°1</h6>
-                </div>
-                <!-- Copyright -->
-            </footer>
-    </div>
-    <!-- End of .container -->
-</body>
+?>
+</div>
 <script src="js/sweetalert.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="js/jquery.min.js"></script>
+
 <script src="js/script.js"></script>
 <script>
     
@@ -181,7 +169,7 @@ switch ($row_fase['fase_fases']) {
     swal({
       icon: "success",
       text: ("Fase cambiada a: "+alertaa),
-      });
+    }).then(function(){ window.location.reload(); })
     // alert("Fase cambiada a: "+alertaa);
  
     $.ajax({
@@ -192,7 +180,7 @@ switch ($row_fase['fase_fases']) {
       },
       success: function (data) {
         console.log(data);
-    
+     
       },
     });
   });
@@ -200,4 +188,22 @@ switch ($row_fase['fase_fases']) {
 
 
 </script>
+  <!-- Remove the container if you want to extend the Footer to full width. -->
+  <div class="" style="
+        position:   fixed;
+        bottom: 0; 
+        width:100%;">
+            <footer class="bg-light text-center text-lg-start">
+            <!-- Copyright -->
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    <h6>Sistema creado por los alumnos de 7mo C de la E.E.S.T N°1</h6>
+                </div>
+                <!-- Copyright -->
+            </footer>
+    </div>
+    <!-- End of .container -->
+</body>
+
+
+
 </html>

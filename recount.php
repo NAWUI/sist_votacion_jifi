@@ -16,189 +16,208 @@
 
 </head>
 <body>
+  <!-- HEADER INICIO -->
+           <?php 
+                include("header.php");
+            ?>
+           
+        <!-- HEADER FIN -->
 <?php
-include("connection.php");
-//include("ajax.php");
+$query = "SELECT fase_fases FROM tbl_fases LIMIT 1";
+$fase = mysqli_query($conn, $query);
+$row_fase = mysqli_fetch_array($fase);
+echo '<script> 
+                      console.log('.$row_fase['fase_fases'].'); 
+                    </script>';
 
-//echo $numeroV;
-// $id = $_POST['id1'];
-// //include ("session.php");
-// // secuencia que se encarga de traer de la base de datos los alumnos del curso
-$sql = mysqli_query($conn,"SELECT COUNT(*) AS `count` FROM `tbl_registro_voto` WHERE voto_almn = 1");
-$data = mysqli_fetch_assoc($sql);
-$votos = $data['count'];
+                    switch ($row_fase['fase_fases']) {
+                        case 0:
+                            echo '<script> function miFuncion() {swal({icon: "info",text: "No hay listas cargadas." ,}).then(function(){ window.location = "dashboard.php"; })}</script>';
+                            echo "<script>setTimeout(miFuncion, 500);</script>"; 
+                            break;
+                        case 1:
 
-// //secuencia que se encarga de traer de la abse de datos los alumnos del curso que votaron
-// $sql1 = mysqli_query($conn,"SELECT COUNT(*) AS `count` FROM `tbl_registro_voto` WHERE voto_almn = 0");
-// $data1 = mysqli_fetch_assoc($sql1);
-// $votos = $data1['count1'];
+include("connection.php"); // Archivo de conexión a la base de datos
 
-// $resta = $alumn - $votos;
+$etiquetas = []; // Inicializar el array de etiquetas
+$datosVentas = []; // Inicializar el array de datos
+$colores = []; // Inicializar el array de colores
 
-        $select_products = mysqli_query($conn, "SELECT * FROM `tbl_listas`");
-        while($fetch_product = mysqli_fetch_assoc($select_products)){
-           //var_dump($fetch_product);
-            if ($fetch_product['habilitada'] == 0){
-                     $nombre_lista = $fetch_product['color'];
-                     $etiquetas[] = $nombre_lista;
+$select_products = mysqli_query($conn, "SELECT color, contadorVotos FROM `tbl_listas` ");
 
-                     
-        $select_voto = mysqli_query($conn, "SELECT * FROM `tbl_listas` WHERE color = $nombre_lista");
-        if($select_voto->num_rows > 0){
-            while($fetch_voto = mysqli_fetch_assoc($select_voto)){
-                $voto = $fetch_voto['contadorVotos'];
-                $datosVentas[] = $voto;
-            }
-        }
+function obtenerColorParaLista($nombre_lista) {
+    // Lógica para asignar colores basados en el nombre de la lista
+    // Puedes tener un array de nombres y colores predefinidos aquí
+    $colores_predefinidos = [
+        'rojo' => 'red',
+        'amarillo' => 'yellow',
+        'azul' => 'blue',
+        'verde' => 'green',
+        'naranja' => 'orange',
+        'rosa' => 'pink',
+        'violeta' => 'violet',
+        'morado' => 'purple',
+        'marrón' => 'brown',
+        'gris' => 'gray',
+        'blanco' => 'white',
+        'negro' => 'black',
+        'turquesa' => 'turquoise',
+        'cian' => 'cyan',
+        'lavanda' => 'lavender',
+        'oliva' => 'olive',
+        'lima' => 'lime',
+        'beige' => 'beige',
+        'marfil' => 'ivory',
+        'agual' => 'aqua',
+        'salmon' => 'salmon',
+        'oro' => 'gold',
+        'plata' => 'silver',
+        'café' => 'maroon',
+        'gris oscuro' => 'darkgray',
+        'gris claro' => 'lightgray',
+        // Agrega más nombres y colores según tus necesidades
+    ];
+
+    // Si el nombre de la lista está en el array de colores predefinidos, devuelve el color correspondiente
+    if (array_key_exists($nombre_lista, $colores_predefinidos)) {
+        return $colores_predefinidos[$nombre_lista];
+    } else {
+        // Si el nombre de la lista no está en el array de colores predefinidos, devuelve un color por defecto
+        return 'gray';
     }
-    }  
+}
 
- 
-                 
-    $select_voto1 = mysqli_query($conn, "SELECT * FROM `tbl_listas` where color = voto en blanco ");
-    if($select_voto1->num_rows > 0){
-        while($fetch_voto1 = mysqli_fetch_assoc($select_voto1)){
-            $voto1 = $fetch_voto1['contadorVotos'];
-            $grupoV = $fetch_voto1['apellido_almn'];
-            $etiquetas1[] = 'Voto en blanco, grupo:'. " (" .$grupoV.")";
-            $datosVentas1[] = $voto1;
-                     };
-            }else {
-                $voto0 = 0;
-                 $datosVentas1[] = $voto0;        
-            }
- ?>      
+if ($select_products) {
+    while ($fetch_product = mysqli_fetch_assoc($select_products)) {
+        $nombre_lista = $fetch_product['color'];
+        $etiquetas[] = $nombre_lista;
+        $datosVentas[] = $fetch_product['contadorVotos'];
+        $total_votos = array_sum($datosVentas);
+        // Definir colores basados en el nombre de la lista (puedes personalizar esta lógica)
+        $colores[$nombre_lista] = obtenerColorParaLista($nombre_lista);
+    }
+} else {
+    echo "Error en la consulta: " . mysqli_error($conn);
+}
 
-<div class="row">
-    <div class="col">
-    <div class="container rounded border border-primary-subtle" style="position: relative; width:350px;">
 
-<section class="products">
-
-<div class="box-container">
-   <div aria-label="Basic example">
-        <h3>Votos hasta el momento:<?php echo $votos;?> </h3>
-        
-    </div>
-</div>
-<canvas id="grafica"></canvas>
-<h3>Votos Faltantes: <?php echo $resta;?></h3>
-<?php
-$select_produts = mysqli_query($conn, "SELECT * FROM `tbl_alumnos` WHERE id_curso = $id");
-       
-while($fetch_produt = mysqli_fetch_assoc($select_produts)){
-   //var_dump($fetch_product);
-    if ( $fetch_produt['id_curso'] == $id && $fetch_produt['voto_almn'] == 0){
-             $nombre = $fetch_produt['nombre_almn'];
-             $apellido = $fetch_produt['apellido_almn'];
-             $dni = $fetch_produt['dni_almn'];
-             $alumno =  $nombre. " " .$apellido;
-             $com = $dni. ";" .$alumno;
- ?>
-             <ul>
-             
-             <li><?php echo $com; ?></li>
-             </ul>
-             
-<?php
-};
-};
 ?>
+<style>
 
-</section>
-</div>
-    </div>
-    
-    <div class="col">
-    <div class="container rounded border border-primary-subtle" style="position: relative; width:350px">
 
-<section class="products">
 
-<div class="box-container">
-   <div aria-label="Basic example">
-        <h3>Votos en blanco</h3>
-    </div>
-</div>
-<canvas id="grafica1"></canvas>
-<br>
-</section>
-</div>
+#leyendas-container .circulo {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+</style>  
+<br><br>
+<div class="row g-0 text-center">
+  <div class="col-sm-6 col-md-8">
+  <div class="container rounded border border-primary-subtle">
+                <section class="products">
+                    <div class="box-container">
+                        <div aria-label="Basic example">
+                            <h3>Votos hasta el momento: <?php echo $total_votos; ?></h3>
+                        </div>
+                    </div>
+                    <canvas id="grafica"></canvas>
+                    
+                        
+                </section>
+            </div>
+  </div>
+ 
+
+  <div class="col-6 col-md-4">
+  <div class="container rounded border border-primary-subtle">
+             <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Lista de C.D.E</th>
+    </tr>
+  </thead>                    
+  <div class="leyendas" id="leyendas-container">
+<?php foreach($etiquetas as $etiqueta): ?>
+  <tbody>
+    <tr>
+      <th scope="row" class="circulo" style="background-color: <?php echo $colores[$etiqueta]; ?>"></th>
+      <td> <?php echo $etiqueta; ?></td>
+
+   
+
+            
+
+    <?php endforeach; ?>
+     </tr>
+    </tbody>
+</table>  
     </div>
   </div>
-
-
-<script>
-        // Obtener una referencia al elemento canvas del DOM
-        const $grafica = document.querySelector("#grafica");
-        const $grafica1 = document.querySelector("#grafica1");
-        // Pasaamos las etiquetas desde PHP
-        const etiquetas = <?php echo json_encode($etiquetas); ?>;
-        const etiquetas1 = <?php echo json_encode($etiquetas1); ?>;
-        // Podemos tener varios conjuntos de datos. Comencemos con uno
-        const datosVentas2020 = {
-            label: "Votacion",
-            // Pasar los datos igualmente desde PHP
-            data: <?php echo json_encode($datosVentas) ?>,
-            backgroundColor: 'rgba(54, 162, 235, 0.2)', // Color de fondo
-            borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
-            borderWidth: 1, // Ancho del borde
-        };
-        const datosVentas20201 = {
-            label: "Votacion",
-            // Pasar los datos igualmente desde PHP
-            data: <?php echo json_encode($datosVentas1) ?>,
-            backgroundColor: 'rgba(120, 120, 120, 0.2)', // Color de fondo
-            borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
-            borderWidth: 1, // Ancho del borde
-        };
-        new Chart($grafica, {
-            type: 'doughnut', // Tipo de gráfica
-            data: {
-                labels: etiquetas,
-                datasets: [
-                    datosVentas2020,
-                    // Aquí más datos...
-                ]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }],
-                },
-            }
-        });
-        new Chart($grafica1, {
-            type: 'doughnut', // Tipo de gráfica
-            data: {
-                labels: etiquetas1,
-                datasets: [
-                    datosVentas20201,
-                    // Aquí más datos...
-                ]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }],
-                },
-            }
-        });
-    </script>
-<!-- custom js file link  -->
-<!--    <script src="chart.min.js"></script> -->
+</div>
 <script src="Chart.js"></script>
-
-</body>
 <script src="js/sweetalert.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/script.js"></script>
-<script src="js\carga_lista.js"></script>
+<script>
+const etiquetas = <?php echo json_encode($etiquetas); ?>;
+const datosVentas = <?php echo json_encode($datosVentas); ?>;
+const colores = <?php echo json_encode($colores); ?>;
 
+const grafica = document.querySelector("#grafica");
+
+        const datos = {
+            labels: etiquetas,
+            datasets: [{
+                data: datosVentas,
+                backgroundColor: etiquetas.map(nombreLista => colores[nombreLista]),
+                borderWidth: 3,
+            }]
+        };
+
+        const opciones = {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
+            legend: {
+                display: false
+            },
+        };
+
+        new Chart(grafica, {
+            type: 'doughnut',
+            data: datos,
+            options: opciones
+        });
+    </script>   
+    <?php 
+    break;
+                        
+                        }
+                        ?>
+                        <div class="" style="
+        position:   fixed;
+        bottom: 0; 
+        width:100%;">
+            <footer class="bg-light text-center text-lg-start">
+            <!-- Copyright -->
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    <h6>Sistema creado por los alumnos de 7mo C de la E.E.S.T N°1</h6>
+                </div>
+                <!-- Copyright -->
+            </footer>
+    </div>
+</body>
+<script src="Chart.js"></script>
+<script src="js/sweetalert.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/script.js"></script>
 </html>
+

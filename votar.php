@@ -74,6 +74,7 @@ switch ($row_fase['fase_fases']) {
                if(mysqli_num_rows($select_listas) > 0){
                   while($fetch_listas = mysqli_fetch_assoc($select_listas)){
                      $val = $fetch_listas['id'];
+                     $val_color = $fetch_listas['color'];
                   if ($fetch_listas['habilitada'] == 1){
                
                ?>
@@ -86,8 +87,9 @@ switch ($row_fase['fase_fases']) {
 
                   <label class="btn btn-outline-success" for="<?php echo $val; ?>">Ver propuesta</label>
 
-                  <input type="checkbox" class="btn-check" id="<?php echo $val; ?>" value= "<?php echo $val; ?>" autocomplete="off">
-                  <label class="btn btn-outline-success" for="<?php echo $val; ?>">Seleccionar</label>
+                  <input type="checkbox" class="btn-check" id="<?php echo $val_color; ?>" value= "<?php echo $val_color; ?>" autocomplete="off">
+                  <label class="btn btn-outline-success" for="<?php echo $val_color; ?>">Seleccionar</label>
+
                  </div>
                </form>
 
@@ -99,8 +101,10 @@ switch ($row_fase['fase_fases']) {
                   <div class="box">
                   <h3>Voto en blanco</h3>
 
-                  <input type="checkbox" class="btn-check" id="votob" value="1" autocomplete="off">
-                  <label class="btn btn-outline-success" for="votob">Seleccionar</label>
+
+                  <input type="checkbox" class="btn-check" id="VB" value="VB" autocomplete="off">
+                  <label class="btn btn-outline-success" for="VB">Seleccionar</label>
+
                   </div>
                   </form>
                   <?php
@@ -219,4 +223,6 @@ break;
 
 
 
+
 </html>
+
