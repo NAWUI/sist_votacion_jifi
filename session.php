@@ -8,7 +8,7 @@
    
    $row_usr = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
 
-    $dni_usr = $row_usr['dni'];
+   $dni_usr = $row_usr['dni'];
    $name_usr = $row_usr['nombre'];
    $sname_usr = $row_usr['apellido'];
    

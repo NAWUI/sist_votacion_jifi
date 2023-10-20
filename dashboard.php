@@ -157,10 +157,7 @@
 </div>
 </div>
 </div>
-<style>
 
-
-</style>
     <div class="footer-wrapper">
         <footer class="bg-light text-center text-lg-start">
             <!-- Copyright -->
