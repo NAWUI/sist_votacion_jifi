@@ -10,6 +10,7 @@ $(document).ready(function () {
                 return {
                     results: $.map(data, function (item) {
                         return {
+                            
                             text: item.dni + ' - ' + item.nombre + ' ' + item.apellido,
                             id: item.dni // Use dni as the ID
                         }
@@ -20,3 +21,5 @@ $(document).ready(function () {
         }
     });
 });
+
+
