@@ -25,10 +25,10 @@ $(document).ready(function(){
                         timer: 1500,
                         button: false
                     });
-                } else if (data == "Color ya existente, elija otro.") {
+                } else if (data == "Se ha repetido un DNI de otra lista.") {
                     swal({
                         icon: "error",
-                        text: "Color ya existente, elija otro.",
+                        text: "Se ha repetido un DNI de otra lista.",
                         timer: 1500,
                         button: false
                     });
