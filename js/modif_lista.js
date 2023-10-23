@@ -57,6 +57,13 @@ $(document).ready(function() {
                         timer: 1500,
                         button: false
                     });
+                } else if (data == "Nombre de lista repetido.") {
+                    swal({
+                        icon: "error",
+                        text: "Nombre de lista repetido.",
+                        timer: 1500,
+                        button: false
+                    });
                 } else {
                     swal({
                         icon: "error",
