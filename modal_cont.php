@@ -162,17 +162,18 @@ if (isset($_POST['id'])) {
                             <p><?php echo "Primero: ".$gyd_v1_data['nombre']." ".$gyd_v1_data['apellido']."  Segundo: ".$gyd_v2_data['nombre']." ".$gyd_v2_data['apellido']; ?></p>
                             <?php
                             
-                            $prof_acesor_q = mysqli_query($conn, "SELECT `nombre`, `apellido` FROM `tbl_alumnos` WHERE dni = $prof_acesor LIMIT 1;");
+                            $prof_acesor_q = mysqli_query($conn, "SELECT `nombre`, `apellido` FROM `personal` WHERE dni = $prof_acesor LIMIT 1;");
                             $prof_acesor_data = mysqli_fetch_assoc($prof_acesor_q);
                             ?>
                             <h5>Profesor acesor:</h5>
                             <p><?php echo $prof_acesor_data['nombre']." ".$prof_acesor_data['apellido']; ?></p>
                             <?php
                             
-                            $prof_acesorsup_q = mysqli_query($conn, "SELECT `nombre`, `apellido` FROM `tbl_alumnos` WHERE dni = $prof_acesorsup LIMIT 1;");
+                            $prof_acesorsup_q = mysqli_query($conn, "SELECT `nombre`, `apellido` FROM `personal` WHERE dni = $prof_acesorsup LIMIT 1;");
                             $prof_acesorsup_data = mysqli_fetch_assoc($prof_acesorsup_q);
-                            
                         ?>
+                        <h5>Profesor acesor suplente:</h5>
+                            <p><?php echo $prof_acesorsup_data['nombre']." ".$prof_acesorsup_data['apellido']; ?></p>
                 <!-- Botones del modal -->
                     <div class="modal-footer">
                     </div>

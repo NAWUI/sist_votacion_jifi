@@ -60,7 +60,7 @@ if (empty($color) || empty($propuesta) || empty($presidente) || empty($sec_admin
         // No existe un registro con color 'voto en blanco', insertar nuevo registro
         $sql = "UPDATE `tbl_listas` 
         SET 
-          `color`='$color',
+          `id` != '$color',
           `propuesta`='$propuesta',
           `presidente`='$presidente',
           `sec_administracion`='$sec_administracion',
