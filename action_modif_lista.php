@@ -32,35 +32,37 @@ if (empty($color) || empty($propuesta) || empty($presidente) || empty($sec_admin
     echo "Rellene todos los campos.";
 } else {
     $check_query = "SELECT * FROM `tbl_listas` WHERE
-    `presidente`='$presidente' OR
-    `sec_administracion`='$sec_administracion' OR
-    `sec_documentacion`='$sec_documentacion' OR
-    `tesorero`='$tesorero' OR
-    `vocal_programacion`='$vocal_programacion' OR
-    `vocal_construccion`='$vocal_construccion' OR
-    `vocal_turismo`='$vocal_turismo' OR
-    `vocal_cicloBasico1`='$vocal_cicloBasico1' OR
-    `vocal_cicloBasico2`='$vocal_cicloBasico2' OR
-    `olimp_representante`='$olimp_representante' OR
-    `olimp_vocal1`='$olimp_vocal1' OR
-    `olimp_vocal2`='$olimp_vocal2' OR
-    `eventos_representante`='$eventos_representante' OR
-    `eventos_vocal1`='$eventos_vocal1' OR
-    `eventos_vocal2`='$eventos_vocal2' OR
-    `prensa_representante`='$prensa_representante' OR
-    `prensa_vocal1`='$prensa_vocal1' OR
-    `prensa_vocal2`='$prensa_vocal2' OR
-    `gyd_representante`='$gyd_representante' OR
-    `gyd_vocal1`='$gyd_vocal1' OR
-    `gyd_vocal2`='$gyd_vocal2' OR
-    `prof_acesor`='$prof_acesor' OR
+    `id` != '$id' AND
+    `color` = '$color' AND
+    `presidente`='$presidente' AND
+    `sec_administracion`='$sec_administracion' AND
+    `sec_documentacion`='$sec_documentacion' AND
+    `tesorero`='$tesorero' AND
+    `vocal_programacion`='$vocal_programacion' AND
+    `vocal_construccion`='$vocal_construccion' AND
+    `vocal_turismo`='$vocal_turismo' AND
+    `vocal_cicloBasico1`='$vocal_cicloBasico1' AND
+    `vocal_cicloBasico2`='$vocal_cicloBasico2' AND
+    `olimp_representante`='$olimp_representante' AND
+    `olimp_vocal1`='$olimp_vocal1' AND
+    `olimp_vocal2`='$olimp_vocal2' AND
+    `eventos_representante`='$eventos_representante' AND
+    `eventos_vocal1`='$eventos_vocal1' AND
+    `eventos_vocal2`='$eventos_vocal2' AND
+    `prensa_representante`='$prensa_representante' AND
+    `prensa_vocal1`='$prensa_vocal1' AND
+    `prensa_vocal2`='$prensa_vocal2' AND
+    `gyd_representante`='$gyd_representante' AND
+    `gyd_vocal1`='$gyd_vocal1' AND
+    `gyd_vocal2`='$gyd_vocal2' AND
+    `prof_acesor`='$prof_acesor' AND
     `prof_acesorsup`='$prof_acesorsup'";
     $check_result = mysqli_query($conn, $check_query);
     if(mysqli_num_rows($check_result) == 0) {
         // No existe un registro con color 'voto en blanco', insertar nuevo registro
         $sql = "UPDATE `tbl_listas` 
         SET 
-          `id` != '$color',
+          `color`='$color',
           `propuesta`='$propuesta',
           `presidente`='$presidente',
           `sec_administracion`='$sec_administracion',
@@ -93,7 +95,7 @@ if (empty($color) || empty($propuesta) || empty($presidente) || empty($sec_admin
             echo "Error: " . mysqli_error($conn);
         }
     }else{
-        echo 'Se ha repetido un DNI de otra lista.';
+        echo 'DNI o nombre de lista repetidos.';
 }
 }    
 
