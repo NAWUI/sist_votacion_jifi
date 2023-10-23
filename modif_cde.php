@@ -112,6 +112,12 @@
 
         </select>
     </div>
+    <div class="form-group">
+        <select style="display: none;" class="form-select" id="id_cde" name="id_cde">
+            <!-- Add options for the select element if needed -->
+            <option value<?php echo $id_cde; ?>selected><?php echo $id_cde; ?></option>
+        </select>
+    </div>
 </div>
 
 <!-- Segunda Columna -->
