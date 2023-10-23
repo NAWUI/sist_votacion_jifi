@@ -31,7 +31,15 @@ $prof_acesorsup = mysqli_real_escape_string($conn, $_POST['prof_acesorsup']);
 if (empty($color) || empty($propuesta) || empty($presidente) || empty($sec_administracion) || empty($sec_documentacion) || empty($tesorero) || empty($vocal_programacion) || empty($vocal_construccion) || empty($vocal_turismo) || empty($vocal_cicloBasico1) || empty($vocal_cicloBasico2) || empty($olimp_representante) || empty($olimp_vocal1) || empty($olimp_vocal2) || empty($eventos_representante) || empty($eventos_vocal1) || empty($eventos_vocal2) || empty($prensa_representante) || empty($prensa_vocal1) || empty($prensa_vocal2) || empty($gyd_representante) || empty($gyd_vocal1) || empty($gyd_vocal2) || empty($prof_acesor) || empty($prof_acesorsup)) {
     echo "Rellene todos los campos.";
 } else {
-    $check_query = "SELECT * FROM `tbl_listas` WHERE
+
+    $color_check = "SELECT * FROM `tbl_listas` WHERE id != '$id' AND color = '$color' ";
+    $color_result = mysqli_query($conn, $color_check);
+
+    if (mysqli_num_rows($color_result) > 0) {
+        echo 'Nombre de lista repetido.';
+    } else {
+        $check_query = "SELECT * FROM `tbl_listas` WHERE
+
     `id` != '$id' AND
     `color` = '$color' AND
     `presidente`='$presidente' AND
@@ -97,6 +105,7 @@ if (empty($color) || empty($propuesta) || empty($presidente) || empty($sec_admin
     }else{
         echo 'DNI o nombre de lista repetidos.';
 }
+    }
 }    
 
 $conn->close();
