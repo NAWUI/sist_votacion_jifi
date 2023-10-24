@@ -16,7 +16,7 @@ $(document).ready(function() {
                 uniqueValues.add(input.value);
             }
         });
-
+        console.log(hasDuplicates)
         if (hasDuplicates) {
             swal({
                 icon: "error",
